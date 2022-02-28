@@ -1,0 +1,1 @@
+web: gunicorn CaseStudy-Dash-Final:server --preload
