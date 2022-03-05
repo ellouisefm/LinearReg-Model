@@ -4,10 +4,11 @@ from dash import html
 from dash.dependencies import Input, Output, State
 import requests
 import json
+from flask import Flask, request, jsonify
 
 from server import server
 # app = dash.Dash()
-app = dash.Dash(name='CaseStudyDash', server=server, url_base_pathname='/')
+app = dash.Dash(name='dash_app', server=server, url_base_pathname='/')
 
 styleHead = {
             'textAlign': 'left',
@@ -118,7 +119,8 @@ app.layout = html.Div([get_inputs, get_output, post_inputs, post_output])
          State('get_dist', 'value')])
 def get_request(pred_button, get_ncases, get_dist):
     if pred_button > 0:
-        url = "http://127.0.0.1:5000/linearregression"
+        # url = "http://127.0.0.1:5000/linearregression"
+        url = request.host_url+"/linearregression"
         header = {'Content-type':'application/json', 'Accept':'text/plain', 'api-key':'mypassword', 'ncases':str(get_ncases), 'distance':str(get_dist)}
         res = requests.get(url, headers=header)
     
@@ -136,7 +138,8 @@ def get_request(pred_button, get_ncases, get_dist):
          State('post_dist', 'value')])
 def post_request(append_button, post_deltime, post_ncases, post_dist):
     if append_button > 0:
-        url = "http://127.0.0.1:5000/adddata"
+        # url = "http://127.0.0.1:5000/adddata"
+        url = request.host_url+"/adddata"
         data = {"deltime":post_deltime, "distance":post_dist, "ncases":post_ncases}
         res = requests.post(url,json=data)
     
@@ -149,5 +152,3 @@ def post_request(append_button, post_deltime, post_ncases, post_dist):
 
 # if __name__ == '__main__':
 #     app.run_server()
-
-
