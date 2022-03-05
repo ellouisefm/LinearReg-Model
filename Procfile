@@ -1,1 +1,1 @@
-web: gunicorn CaseStudy-Dash-Final:server = server
+web: gunicorn CaseStudyDash:server
