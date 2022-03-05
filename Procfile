@@ -1,1 +1,1 @@
-web: gunicorn CaseStudyDash:server
+web: gunicorn run:server
