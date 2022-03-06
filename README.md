@@ -1,6 +1,9 @@
 # Linear Regression Model
 Linear Regression Model app in Heroku using Dash and Flask.
 
+## Deployed App
+[Linear Regression Model] (https://linear-r-model.herokuapp.com/)
+
 ## Reference links
 
 - [Flask Dash App](https://flask-dash-app-demo.herokuapp.com/?fbclid=IwAR2tXflNm_xgLcLrh7jZGevhvlDLv2T7Dp-Jc9M_BcCNd5MmtRyoN1BVA68)
