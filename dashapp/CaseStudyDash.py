@@ -1,6 +1,6 @@
 import dash
-from dash import dcc
-from dash import html
+import dash_core_components as dcc
+import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import requests
 import json
@@ -110,6 +110,7 @@ post_output = html.Div([
     ])
 
 app.layout = html.Div([get_inputs, get_output, post_inputs, post_output])
+app.title = "Linear Regression Model"
 
 # GET
 @app.callback(
