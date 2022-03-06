@@ -1,1 +1,1 @@
-web:gunicorn server:dashapp --preload
+web:gunicorn run:app --log-file=-
